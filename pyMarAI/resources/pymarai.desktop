@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=PyMarAI (Spheroids Auto Delineation)
+GenericName=PyMarAI
+X-GNOME-FullName=PyMarAI
+Comment=Spheroids Auto Delineation
+Type=Application
+Categories=Education;Science;ImageProcessing;
+Exec=/usr/local/bin/pymarai
+TryExec=/usr/local/bin/pymarai
+Terminal=false
+StartupNotify=true

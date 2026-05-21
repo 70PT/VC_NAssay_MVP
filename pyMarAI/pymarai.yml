@@ -1,0 +1,96 @@
+microscopes:
+  - "-: Please select resolution of used microscope"
+  - "1: 0.2012 pixel/µm"
+  - "2: 0.3534 pixel/µm"
+  - "3: 1.079 pixel/µm"
+  - "4: 1.449 pixel/µm"
+
+default_microscope: "-"
+
+utils:
+  mic2ecat: "/usr/local/petlib/bin/mic2ecat"
+  roi2Rdf: "/usr/local/petlib/bin/roi2Rdf"
+  thrass: "/usr/local/petlib/bin/thrass"
+  rover: "/usr/local/petlib/bin/rover"
+  nvidia-smi: "/usr/bin/nvidia-smi"
+  conda: "/usr/local/miniforge3/condabin/conda"
+  nnunet_predict: "/usr/local/miniforge3/envs/nnunet-spheroids/bin/nnUNetv2_predict"
+  nnunet_train: "/usr/local/miniforge3/envs/nnunet-spheroids/bin/nnUNetv2_train"
+
+scripts:
+  preprocess_script: "/pet/projekte/ai/delineation/spheroids/summerStudent/ecat/retrain/process.sh"
+  create_dataset_script: "/pet/projekte/ai/delineation/spheroids/nnUnet/raw/createDataset.sh"
+  custom_split_script: "/pet/projekte/ai/delineation/spheroids/summerStudent/ecat/retrain/custom_split.py"
+
+nnunet:
+  env: "/usr/local/miniforge3/envs/nnunet-spheroids"
+  dataset: "Dataset001_spheroids_V1"
+  trainer: "nnUNetTrainer_noSmooth"
+  config: "2d"
+  plans: "nnUNetPlans"
+  folds: [0, 1, 2, 3, 4]
+
+retrain:
+  training_staging_dir: "/pet/projekte/ai/delineation/spheroids/summerStudent/ecat/retrain2"
+  nnunet_preprocessed_dir: "/pet/projekte/ai/delineation/spheroids/nnUnet/preprocessed"
+  dataset_workdir: "/pet/projekte/ai/delineation/spheroids/nnUnet/raw"
+
+machines:
+  vega:
+      ip: 192.168.128.70
+      type: gpu
+      cpu_threshold: 40
+      gpu_threshold: 10
+  lyra:
+      ip: 192.168.128.204
+      type: gpu
+      cpu_threshold: 60
+      gpu_threshold: 10
+  atlas:
+      ip: 192.168.128.144
+      type: cpu
+      cpu_threshold: 40
+  janus:
+      ip: 192.168.128.146
+      type: cpu
+      cpu_threshold: 40
+  hati:
+      ip: 192.168.128.154
+      type: cpu
+      cpu_threshold: 40
+  kari:
+      ip: 192.168.128.156
+      type: cpu
+      cpu_threshold: 40
+  anthe:
+      ip: 192.168.128.158
+      type: cpu
+      cpu_threshold: 40
+  pan:
+      ip: 192.168.128.161
+      type: cpu
+      cpu_threshold: 40
+  orcus:
+      ip: 192.168.128.136
+      type: cpu
+      cpu_threshold: 40
+  proteus:
+      ip: 192.168.128.142
+      type: cpu
+      cpu_threshold: 40
+  narvi:
+      ip: 192.168.128.148
+      type: cpu
+      cpu_threshold: 40
+  jupiter:
+      ip: 192.168.128.134
+      type: cpu
+      cpu_threshold: 30
+  neptun:
+      ip: 192.168.128.63
+      type: cpu
+      cpu_threshold: 40
+  saturn:
+      ip: 192.168.128.18
+      type: cpu
+      cpu_threshold: 1
